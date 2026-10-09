@@ -1,0 +1,6 @@
+.git
+config
+tests
+__pycache__
+*.pem
+*.key
