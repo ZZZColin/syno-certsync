@@ -1,0 +1,18 @@
+services:
+  certsync:
+    build: .
+    # image: ghcr.io/<your-name>/syno-certsync:latest
+    container_name: syno-certsync
+    restart: unless-stopped
+    # Needed to write DSM certificate dirs and to restart nginx on the host via nsenter.
+    privileged: true
+    pid: host
+    user: root
+    environment:
+      - SYNC_INTERVAL_HOURS=24
+      # used only when /config/jobs.txt does not exist
+      # - SYNC_ARGS=sync --provider aliyun --days 2 --domain example.com
+    volumes:
+      - ./config:/config                                   # config.ini, jobs.txt, downloaded certs
+      - /usr/syno/etc/certificate:/usr/syno/etc/certificate
+      - /usr/local/etc/certificate:/usr/local/etc/certificate
