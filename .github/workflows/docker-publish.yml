@@ -40,7 +40,7 @@ jobs:
           TAG: ${{ inputs.tag }}
           ALSO_LATEST: ${{ inputs.also_latest }}
         run: |
-          # inputs go through env vars (not inline ${{ }}) to avoid shell injection
+          # inputs go through env vars (not inline expressions) to avoid shell injection
           if ! [[ "$TAG" =~ ^[A-Za-z0-9_][A-Za-z0-9_.-]{0,127}$ ]]; then
             echo "invalid tag: $TAG"; exit 1
           fi
