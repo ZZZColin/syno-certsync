@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+config.ini
+certs/
+*.pem
+*.key
