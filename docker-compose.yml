@@ -1,7 +1,7 @@
 services:
   certsync:
-    build: .
-    # image: ghcr.io/<your-name>/syno-certsync:latest
+    # build: .
+    image: zzzcolin/syno-certsync:latest
     container_name: syno-certsync
     restart: unless-stopped
     # Needed to write DSM certificate dirs and to restart nginx on the host via nsenter.
