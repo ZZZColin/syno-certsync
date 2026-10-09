@@ -1,0 +1,6 @@
+# one job per line = arguments to certsync. Copy to jobs.txt
+# quote wildcard domains so the shell does not expand them
+sync --provider aliyun --days 2 --domain example.com
+sync --provider tencent --days 2 --domain example.org
+# ACME example (needs [cloudflare] api_token in config.ini)
+# issue --provider cloudflare -d example.net -d '*.example.net' --deploy
